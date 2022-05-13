@@ -9,19 +9,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "cargos")
+@Table(name = "employee")
 @DynamicInsert
 @DynamicUpdate
-public class Cargo {
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String descricao;
+    private String name;
+
+    private String education;
+
+    @ManyToOne
+    private Job job;
 }
